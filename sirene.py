@@ -13,8 +13,8 @@ load_dotenv()
 # api key
 KEY = os.getenv("KEY", "")
 SECRET = os.getenv("SECRET", "")
-USERENV = os.getenv("USERENV", "")
-PASSWDENV = os.getenv("PASSWDENV", "")
+USERMONGO = os.getenv("USERMONGO", "")
+PASSWDMONGO = os.getenv("PASSWDMONGO", "")
 
 def insert_mongo(societies: List[Dict[str, str]]) -> None:
     """ insert societies in mongodb
@@ -23,8 +23,8 @@ def insert_mongo(societies: List[Dict[str, str]]) -> None:
         societies (List): list of dict societies to insert
     """
     myclient = pymongo.MongoClient("mongodb://localhost:27017/",
-        username=USERENV,
-        password=PASSWDENV)
+        username=USERMONGO,
+        password=PASSWDMONGO)
     db = myclient.database
     collection = db.societies
     collection.insert_many(societies)
