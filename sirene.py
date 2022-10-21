@@ -31,7 +31,7 @@ def insert_mongo(societies: List[Dict[str, str]]) -> None:
 
 
 def siren_request(api: ApiInsee) -> None:
-    """_summary_
+    """ request 100 first societies with NAF code 62.01Z on ApiInsee
 
     Args:
         api (ApiInsee): Insee Api
